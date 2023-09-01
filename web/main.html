@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CarDataParser_byDarkLon3r</title>
+	<script src="eel.js"></script>
+	<link rel="icon" type="image/png" href="car.png">
+	<link rel="stylesheet" href="style.css">
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+</head>
+<body>
+	<div align="center", class="input_content">
+		<h2>CarDataParser 🚗💻</h2>
+		<input type="text" id = "input_text" placeholder="Номер авто⌨️"></br>
+	</div>
+
+	<div align="center", class="btn_start">
+		<button id="search_car">Поиск🔎</button>
+	</div>
+
+	<div align="center", class="content">
+		<textarea type="text" id = "result" placeholder="" readonly></textarea></br>
+	</div>
+
+<script type="text/javascript">
+    async function send_number() {
+        let number_car = document.getElementById('input_text').value;
+
+        let result = await eel.result_search(number_car)();
+        
+        document.getElementById('result').innerHTML = result;
+
+    }
+
+    $('#search_car').click(function() {
+        send_number();
+    });
+</script>
+
+</body>
+</html>
